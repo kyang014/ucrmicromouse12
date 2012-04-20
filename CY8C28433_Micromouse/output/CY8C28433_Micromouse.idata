@@ -1,0 +1,4 @@
+flash  DF7 SRAM    C:
+ 00 15 bytes
+flash  DFB SRAM   1E:
+ 00 25 bytes
