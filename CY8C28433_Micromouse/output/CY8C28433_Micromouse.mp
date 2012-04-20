@@ -1,6 +1,6 @@
 Project:      output/CY8C28433_Micromouse
 Build Number: 0
-Date:         Thu Apr 19 18:48:35 2012
+Date:         Thu Apr 19 23:14:46 2012
 Compiler:     ICCM8C
 Version:      7.05.00
 
@@ -202,7 +202,7 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
 
 Area                               Addr   Size   Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
-                            text   07B1   0646 =   1606. bytes (rel,con,rom,code)
+                            text   07B1   063C =   1596. bytes (rel,con,rom,code)
 
        Addr  Global Symbol
       -----  --------------------------------
@@ -212,21 +212,21 @@ Area                               Addr   Size   Decimal Bytes (Attributes)
        094D  _main
        0979  _Motion_Init
        097A  _Motion_Update
-       09C0  _GPIO_ISR
-       0B15  _Encoder_Init
-       0B3A  _Motor_Init
-       0B4F  _Motor_Drive_Left
-       0BAA  _Motor_Drive_Right
-       0C05  _Sched_Init
-       0C2A  _Sched_RunQueue
-       0C7A  _TICK_ISR
-       0CE9  _LED_Init
-       0CF3  _I2C_Init
-       0D0F  _I2C_Update
-       0DF3  PSoC_GPIO_ISR
-       0DF7  __xidata_start
-       0DF7  __text_end
-       0E01  __xidata_end
+       09B6  _GPIO_ISR
+       0B0B  _Encoder_Init
+       0B30  _Motor_Init
+       0B45  _Motor_Drive_Left
+       0BA0  _Motor_Drive_Right
+       0BFB  _Sched_Init
+       0C20  _Sched_RunQueue
+       0C70  _TICK_ISR
+       0CDF  _LED_Init
+       0CE9  _I2C_Init
+       0D05  _I2C_Update
+       0DE9  PSoC_GPIO_ISR
+       0DED  __xidata_start
+       0DED  __text_end
+       0DF7  __xidata_end
 
 Area                               Start  End    Decimal Bytes (Attributes)
 --------------------------------   ----   ----   ------- ----- ------------
