@@ -28,3 +28,5 @@ obj/
 [Oo]utput*/
 _ReSharper*/
 [Tt]est[Rr]esult*
+[Bb]uid[Ll]og.txt*
+*.hex
