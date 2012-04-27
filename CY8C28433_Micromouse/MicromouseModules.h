@@ -7,5 +7,6 @@
 #include "encoder.h"
 #include "motor.h"
 #include "motion.h"
+#include "nav.h"
 
 #endif
