@@ -33,6 +33,7 @@ void Sched_RunQueue(void)
 	{
 		// Run short unscheduled background tasks here
 		// e.g. maze filling
+		Nav_Update();
 	}
 	else
 	{
