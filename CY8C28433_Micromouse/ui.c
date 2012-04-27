@@ -27,8 +27,8 @@ void I2C_Update(void)
 {
 	M8C_DisableGInt;
 	
-	I2C_Regs.val0 = encoderCount.left;
-	I2C_Regs.val1 = encoderCount.right;
+	I2C_Regs.val0 = encoderCurrentCount.left;
+	I2C_Regs.val1 = encoderCurrentCount.right;
 	I2C_Regs.val2 = adcIRFront;
 	I2C_Regs.val3 = adcIRRight;
 	

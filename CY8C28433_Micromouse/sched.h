@@ -4,16 +4,13 @@
 #include <m8c.h>        // part specific constants and macros
 #include "PSoCAPI.h"    // PSoC API definitions for all User Modules
 #include "PSoCGPIOINT.h"
-#include "ui.h"
-#include "adc.h"
-#include "motor.h"
-#include "motion.h"
+#include "MicromouseModules.h"
 
 // milliseconds
 #define SCHED_PERIOD_ADC    4  // Can reduce to 1 ms if needed. Sensors can settle fast enough
-#define SCHED_PERIOD_MOTOR  10
+#define SCHED_PERIOD_MOTOR  5
 #define SCHED_PERIOD_I2C    32
-#define SCHED_PERIOD_MOTION 5
+#define SCHED_PERIOD_MOTION 10
 
 #define SCHED_RUN_ADC    0x01
 #define SCHED_RUN_MOTOR  0x02

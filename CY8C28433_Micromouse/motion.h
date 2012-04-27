@@ -4,8 +4,7 @@
 #include <m8c.h>        // part specific constants and macros
 #include "PSoCAPI.h"    // PSoC API definitions for all User Modules
 #include "PSoCGPIOINT.h"
-#include "motor.h"
-#include "adc.h"
+#include "MicromouseModules.h"
 
 #define MOTION_COUNT_BACKLASH 15   // encoder ticks of drivetrain backlash
 #define MOTION_COUNT_CELL     517  // encoder ticks per wall length

@@ -1,94 +1,7 @@
 #include "motor.h"
 
-EncoderCounts encoderCount;
-
-char _quadratureState;
-char _previousQuadratureStateLeft;
-char _previousQuadratureStateRight;
-
-void GPIO_ISR(void)
-{
-	LED_Right_On();
-	_quadratureState = _quadrature_left();
-	if (_quadratureState != _previousQuadratureStateLeft)
-	{
-		if (_quadratureState == QUADRATURE_STATE_LEFT_1)
-		{
-			if (_previousQuadratureStateLeft == QUADRATURE_STATE_LEFT_4)
-				encoderCount.left++;
-			else
-				encoderCount.left--;
-		}
-		else if (_quadratureState == QUADRATURE_STATE_LEFT_2)
-		{
-			if (_previousQuadratureStateLeft == QUADRATURE_STATE_LEFT_1)
-				encoderCount.left++;
-			else
-				encoderCount.left--;
-		}
-		else if (_quadratureState == QUADRATURE_STATE_LEFT_3)
-		{
-			if (_previousQuadratureStateLeft == QUADRATURE_STATE_LEFT_2)
-				encoderCount.left++;
-			else
-				encoderCount.left--;
-		}
-		else
-		{
-			if (_previousQuadratureStateLeft == QUADRATURE_STATE_LEFT_3)
-				encoderCount.left++;
-			else
-				encoderCount.left--;
-		}
-		_previousQuadratureStateLeft = _quadratureState;
-	}
-	
-	_quadratureState = _quadrature_right();
-	if (_quadratureState != _previousQuadratureStateRight)
-	{
-		if (_quadratureState == QUADRATURE_STATE_RIGHT_1)
-		{
-			if (_previousQuadratureStateRight == QUADRATURE_STATE_RIGHT_4)
-				encoderCount.right++;
-			else
-				encoderCount.right--;
-		}
-		else if (_quadratureState == QUADRATURE_STATE_RIGHT_2)
-		{
-			if (_previousQuadratureStateRight == QUADRATURE_STATE_RIGHT_1)
-				encoderCount.right++;
-			else
-				encoderCount.right--;
-		}
-		else if (_quadratureState == QUADRATURE_STATE_RIGHT_3)
-		{
-			if (_previousQuadratureStateRight == QUADRATURE_STATE_RIGHT_2)
-				encoderCount.right++;
-			else
-				encoderCount.right--;
-		}
-		else
-		{
-			if (_previousQuadratureStateRight == QUADRATURE_STATE_RIGHT_3)
-				encoderCount.right++;
-			else
-				encoderCount.right--;
-		}
-		_previousQuadratureStateRight = _quadratureState;
-	}
-	LED_Right_Off();
-}
-
-void Encoder_Init(void)
-{
-	encoderCount.left  = 0;
-	encoderCount.right = 0;
-	
-	_previousQuadratureStateLeft = _quadrature_left();   // Initialize left encoder state machine
-	_previousQuadratureStateRight = _quadrature_right(); // Initialize right encoder state machine
-
-	M8C_EnableIntMask(INT_MSK0, INT_MSK0_GPIO);         // Enable GPIO interrupts
-}
+SEncCount _iState;
+SEncCount motorSetpoint;
 
 void Motor_Init(void)
 {
@@ -100,6 +13,59 @@ void Motor_Init(void)
 
 	motor_left_enable();
 	motor_right_enable();
+	
+	_iState.left  = 0;
+	_iState.right = 0;
+	motorSetpoint.left  = 0;
+	motorSetpoint.right = 0;
+}
+
+void Motor_Update(void)
+{
+	SEncCount _error;
+	SEncCount _pTerm;
+	
+#ifdef MOTOR_ENABLE_INTEGRAL
+	SEncCount _iTerm;
+#endif
+
+	
+	// Calculate error from setpoint
+	Encoder_PauseCount();  // Temporaily disable encoder interrupts
+	_error.left  = motorSetpoint.left - encoderCurrentCount.left;
+	_error.right = motorSetpoint.right - encoderCurrentCount.right;
+	Encoder_ResumeCount();
+	
+	// Calculate proportional corrections
+	_pTerm.left  = _error.left  * MOTOR_PGAIN;
+	_pTerm.right = _error.right * MOTOR_PGAIN;
+
+#ifdef MOTOR_ENABLE_INTEGRAL
+	// Calculate the integral state with limiting
+	_iState.left  += _error.left;
+	     if (_iState.left > MOTOR_IMAX) _iState.left = MOTOR_IMAX;  // limit upper bound
+	else if (_iState.left < MOTOR_IMIN) _iState.left = MOTOR_IMIN;  // limit lower bound
+
+	_iState.right += _error.right;
+	     if (_iState.right > MOTOR_IMAX) _iState.right = MOTOR_IMAX;  // limit upper bound
+	else if (_iState.right < MOTOR_IMIN) _iState.right = MOTOR_IMIN;  // limit lower bound
+	
+	// Calculate integral corrections
+	_iTerm.left  = _iState.left  / MOTOR_IDIV;
+	_iTerm.right = _iState.right / MOTOR_IDIV;
+	
+	
+	// Sum correction terms
+	_pTerm.left  += _iTerm.left;
+	_pTerm.right += _iTerm.right;
+#endif
+
+	// Perform corrections
+	Motor_Drive_Left (_pTerm.left );
+	Motor_Drive_Right(_pTerm.right);
+}
+void Motor_Center(void)
+{
 }
 
 void Motor_Drive_Left(int power)
@@ -133,3 +99,4 @@ void Motor_Drive_Right(int power)
 		PWM8_RightRev_COMPARE_REG = -power;
 	}
 }
+

@@ -17,7 +17,7 @@
 ;  ******** Define Memory Model and Stack parameters ********
 ;
 SYSTEM_STACK_PAGE: equ 3   
-SYSTEM_STACK_BASE_ADDR: equ 20h   
+SYSTEM_STACK_BASE_ADDR: equ 60h   
 SYSTEM_LARGE_MEMORY_MODEL: equ 1   
 SYSTEM_SMALL_MEMORY_MODEL: equ 0   
 IMAGECRAFT: equ 1   

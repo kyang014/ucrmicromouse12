@@ -1,28 +1,20 @@
 #include "motion.h"
 
-int _motion_lastEncoderCountLeft;
+
+
+extern SEncCount motorSetpoint;
+
+
 
 void Motion_Init(void)
 {
 }
 
 void Motion_Update(void)
-{ 
-	int _leftSpeed = 255;
-	int _rightSpeed = 200;
-	
-	_leftSpeed -= (adcIRRight*2);
-	_rightSpeed -= (adcIRLeft*2);
-	
-	if (adcIRRight > adcIRLeft)
+{
+	if (motorSetpoint.left < MOTION_COUNT_CELL)
 	{
-		_leftSpeed -= (adcIRFront*2);
+		motorSetpoint.left += 4;
+		motorSetpoint.right += 4;
 	}
-	else
-	{
-		_rightSpeed -= (adcIRFront*2);
-	}
-	
-	Motor_Drive_Left(_leftSpeed);
-	Motor_Drive_Right(_rightSpeed);
 }
