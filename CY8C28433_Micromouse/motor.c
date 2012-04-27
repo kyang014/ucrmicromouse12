@@ -63,9 +63,21 @@ void Motor_Update(void)
 	// Perform corrections
 	Motor_Drive_Left (_pTerm.left );
 	Motor_Drive_Right(_pTerm.right);
+
 }
+
 void Motor_Center(void)
 {
+	SEncCount _offset;
+	
+	Encoder_PauseCount();  // Temporaily disable encoder interrupts
+	encoderCurrentCount.left  -= motorSetpoint.left;
+	encoderCurrentCount.right -= motorSetpoint.right;
+	Encoder_ResumeCount();
+	
+	// Reset setpoints to zero. Encoders retain the same value relative to the setpoint.
+	motorSetpoint.left  = 0;
+	motorSetpoint.right = 0;
 }
 
 void Motor_Drive_Left(int power)
