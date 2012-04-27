@@ -23,48 +23,22 @@ void main(void)
 	// -------------------- Setup --------------------
 	
 	M8C_EnableGInt; // Enable Global Interrupts
+	Encoder_Init(); // encoder.h
+	Motor_Init();   // motor.h
+	LED_Init();     // ui.h
+	I2C_Init();     // ui.h
+	ADC_Init();     // adc.h
+	Sched_Init();   // sched.h
+	Motion_Init();  // motion.h
 	
-	// motor.h
-	Encoder_Init();
-	Motor_Init();
-	
-	// ui.h
-	LED_Init();
-	I2C_Init();
-	
-	// adc.h
-	ADC_Init();
-
-	// sched.h
-	Sched_Init();
-
 	SleepTimer_Start();
 	SleepTimer_EnableInt();
 
 	// ------------------ End Setup ------------------
 
-	//while(1)
-	//{
-//		Encoder_PauseCount();
-//		if (encoderCountLeft > encoderCountRight)
-//		{
-//			PWM8_LeftFwd_WritePulseWidth(0);
-//			PWM8_LeftRev_WritePulseWidth(255);
-//		}
-//		else if (encoderCountLeft < encoderCountRight)
-//		{
-//			PWM8_LeftFwd_WritePulseWidth(255);
-//			PWM8_LeftRev_WritePulseWidth(0);
-//		}
-//		else
-//		{
-//			PWM8_LeftFwd_WritePulseWidth(0);
-//			PWM8_LeftRev_WritePulseWidth(0);
-//		}
-//		Encoder_ResumeCount();
-	//}
-	
 	SleepTimer_SyncWait(8, SleepTimer_WAIT_RELOAD);
+	
+	Motion_SetNextCommand(MOTION_COMMAND_FWD);
 	
 	while(1)
 	{

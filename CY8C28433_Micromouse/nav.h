@@ -6,4 +6,7 @@
 #include "PSoCGPIOINT.h"
 #include "MicromouseModules.h"
 
+void Nav_Init(void);
+void Nav_Update(void);
+
 #endif
