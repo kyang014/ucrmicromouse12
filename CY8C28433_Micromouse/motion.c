@@ -12,9 +12,9 @@ void Motion_Init(void)
 
 void Motion_Update(void)
 {
-	if (motorSetpoint.left < MOTION_COUNT_CELL)
+	if (motorSetpoint.right < (MOTION_COUNT_ROT90*2))
 	{
-		motorSetpoint.left += 4;
+		motorSetpoint.left -= 4;
 		motorSetpoint.right += 4;
 	}
 }

@@ -16,7 +16,7 @@
 #define MOTOR_IMIN    -256  // Minimum allowable integrator state
 #define MOTOR_IMAX     256  // Maximum allowable integrator state
 
-//#define MOTOR_ENABLE_INTEGRAL
+#define MOTOR_ENABLE_INTEGRAL
 
 void Motor_Init(void);
 void Motor_Update(void);

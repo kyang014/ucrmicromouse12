@@ -7,8 +7,8 @@
 #include "MicromouseModules.h"
 
 #define MOTION_COUNT_BACKLASH 15   // encoder ticks of drivetrain backlash
-#define MOTION_COUNT_CELL     517  // encoder ticks per wall length
-#define MOTION_COUNT_ROT90    246  // encoder ticks per wheel to rotate in place 90 degrees
+#define MOTION_COUNT_CELL     547  // encoder ticks per wall length
+#define MOTION_COUNT_ROT90    258  // encoder ticks per wheel to rotate in place 90 degrees
 
 void Motion_Init(void);
 
