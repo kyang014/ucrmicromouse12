@@ -50,11 +50,15 @@ void Motion_Update(void)
 		if (motorSetpoint.right < MOTION_COUNT_CELL)
 		{
 			motorSetpoint.right += MOTION_BASE_VELOCITY;
-			if (adcIRLeft > adcIRRight) motorSetpoint.right -= 2;
-			if (motorSetpoint.right > MOTION_COUNT_CELL) motorSetpoint.right = MOTION_COUNT_CELL;
-			
 			motorSetpoint.left += MOTION_BASE_VELOCITY;
-			if (adcIRLeft < adcIRRight) motorSetpoint.left -= 2;
+			
+			if (adcIRLeft > 100 && adcIRRight > 100)
+			{
+				if (adcIRLeft > adcIRRight) motorSetpoint.right -= 2;
+				if (adcIRLeft < adcIRRight) motorSetpoint.left -= 2;
+			}
+			
+			if (motorSetpoint.right > MOTION_COUNT_CELL) motorSetpoint.right = MOTION_COUNT_CELL;
 			if (motorSetpoint.left > MOTION_COUNT_CELL) motorSetpoint.left = MOTION_COUNT_CELL;
 			
 			
