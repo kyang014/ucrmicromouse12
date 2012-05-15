@@ -8,5 +8,8 @@
 #include "motor.h"
 #include "motion.h"
 #include "nav.h"
+#include "maze.h"
+
+#define abs(v) ((v < 0) ? (unsigned)(-v) : v)
 
 #endif

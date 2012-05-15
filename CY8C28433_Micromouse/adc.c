@@ -10,13 +10,15 @@ unsigned int adcIRFront;
 
 unsigned int adcUser;
 
+//unsigned int adcSideCenterDistance;
+//unsigned int adcFrontCenterDistance;
+
 void ADC_Init(void)
 {
 	IR_Emitter_Off();
 	
 	SAR10_EnableInt(); // Enable SAR10 interrupt
 	SAR10_Start();     // Power on SAR10 block
-
 }
 
 void ADC_Update(void)

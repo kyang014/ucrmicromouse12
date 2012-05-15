@@ -30,8 +30,16 @@ extern unsigned int adcIRRight;
 
 extern unsigned int adcUser;
 
-void ADC_Init(void);
+//extern unsigned int adcSideCenterDistance;
+//extern unsigned int adcFrontCenterDistance;
 
+void ADC_Init(void);
 void ADC_Update(void);
+
+#define ADC_WALL_THRESHOLD   100
+
+#define ADC_FrontWallExists  (adcIRFront > ADC_WALL_THRESHOLD)
+#define ADC_LeftWallExists   (adcIRLeft  > ADC_WALL_THRESHOLD)
+#define ADC_RightWallExists  (adcIRRight > ADC_WALL_THRESHOLD)
 
 #endif

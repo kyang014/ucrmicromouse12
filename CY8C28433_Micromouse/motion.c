@@ -45,32 +45,11 @@ void Motion_Update(void)
 	}
 	
 	// Run movement commands if they are active
-	if (motionCommandCurrent == MOTION_COMMAND_FWD)
+	if (motionCommandCurrent == MOTION_COMMAND_FWD)   //------------------------------------
 	{
-		if (motorSetpoint.right < MOTION_COUNT_CELL)
-		{
-			motorSetpoint.right += MOTION_BASE_VELOCITY;
-			motorSetpoint.left += MOTION_BASE_VELOCITY;
-			
-			if (adcIRLeft > 100 && adcIRRight > 100)
-			{
-				if (adcIRLeft > adcIRRight) motorSetpoint.right -= 2;
-				if (adcIRLeft < adcIRRight) motorSetpoint.left -= 2;
-			}
-			
-			if (motorSetpoint.right > MOTION_COUNT_CELL) motorSetpoint.right = MOTION_COUNT_CELL;
-			if (motorSetpoint.left > MOTION_COUNT_CELL) motorSetpoint.left = MOTION_COUNT_CELL;
-			
-			
-			
-		}
-		else
-		{
-			// Setpoint reached
-			motionCommandCurrent = MOTION_COMMAND_NONE;
-		}
+		Motion_CommandForward();
 	}
-	else if (motionCommandCurrent == MOTION_COMMAND_LEFT90)
+	else if (motionCommandCurrent == MOTION_COMMAND_LEFT90)  //------------------------------------
 	{
 		if (motorSetpoint.right < MOTION_COUNT_ROT90)
 		{
@@ -86,7 +65,7 @@ void Motion_Update(void)
 			motionCommandCurrent = MOTION_COMMAND_NONE;
 		}
 	}
-	else if (motionCommandCurrent == MOTION_COMMAND_RIGHT90)
+	else if (motionCommandCurrent == MOTION_COMMAND_RIGHT90)  //------------------------------------
 	{
 		if (motorSetpoint.left < MOTION_COUNT_ROT90)
 		{
@@ -102,5 +81,25 @@ void Motion_Update(void)
 			motionCommandCurrent = MOTION_COMMAND_NONE;
 		}
 	}
+
+}
+
+void Motion_CommandForward(void)
+{
+	if (motorSetpoint.right < MOTION_COUNT_CELL)
+		{
+			motorSetpoint.right += MOTION_BASE_VELOCITY - 1;
+			motorSetpoint.left += MOTION_BASE_VELOCITY;
+			
+			motorSetpoint.left = abs(motorSetpoint.left);
+			
+			
+			
+		}
+		else
+		{
+			// Setpoint reached
+			motionCommandCurrent = MOTION_COMMAND_NONE;
+		}
 
 }
