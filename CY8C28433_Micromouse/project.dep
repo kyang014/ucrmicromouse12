@@ -6,6 +6,7 @@
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\MICROM~1.H\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\adc.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\encoder.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\maze.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motion.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motor.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\nav.h\
@@ -23,6 +24,7 @@
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\MICROM~1.H\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\adc.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\encoder.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\maze.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motion.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motor.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\nav.h\
@@ -35,6 +37,20 @@
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\MICROM~1.H\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\adc.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\encoder.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\maze.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motion.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motor.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\nav.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\sched.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\ui.h
+./obj/maze.o :  ./lib/COUNTE~1.H ./lib/EzI2Cs.h ./lib/PSoCAPI.h\
+   ./lib/PSOCGP~1.H ./lib/PWM8_L~1.H ./lib/PWM8_L~2.H ./lib/PWM8_P~1.H\
+   ./lib/PWM8_R~1.H ./lib/PWM8_R~2.H ./lib/SAR10.h ./lib/SLEEPT~1.H\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.2/Common/CY110F~1/tools/include/CY8C28~1/m8c.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\MICROM~1.H\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\adc.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\encoder.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\maze.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motion.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motor.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\nav.h\
@@ -47,6 +63,7 @@
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\MICROM~1.H\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\adc.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\encoder.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\maze.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motion.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motor.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\nav.h\
@@ -59,6 +76,7 @@
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\MICROM~1.H\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\adc.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\encoder.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\maze.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motion.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motor.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\nav.h\
@@ -71,6 +89,7 @@
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\MICROM~1.H\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\adc.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\encoder.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\maze.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motion.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motor.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\nav.h\
@@ -83,6 +102,7 @@
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\MICROM~1.H\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\adc.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\encoder.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\maze.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motion.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motor.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\nav.h\
@@ -95,6 +115,7 @@
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\MICROM~1.H\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\adc.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\encoder.h\
+   C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\maze.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motion.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\motor.h\
    C:\Users\Kevin\Dropbox\PSOCDE~1\CY8C28~3\CY8C28~1\nav.h\
