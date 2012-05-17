@@ -47,44 +47,20 @@ void Motion_Update(void)
 	// Run movement commands if they are active
 	if (motionCommandCurrent == MOTION_COMMAND_FWD)   //------------------------------------
 	{
-		Motion_CommandForward();
+		_Motion_CommandForward();
 	}
 	else if (motionCommandCurrent == MOTION_COMMAND_LEFT90)  //------------------------------------
 	{
-		if (motorSetpoint.right < MOTION_COUNT_ROT90)
-		{
-			motorSetpoint.right += MOTION_BASE_VELOCITY;
-			if (motorSetpoint.right > MOTION_COUNT_ROT90) motorSetpoint.right = MOTION_COUNT_ROT90;
-			
-			motorSetpoint.left -= MOTION_BASE_VELOCITY;
-			if (motorSetpoint.left < -MOTION_COUNT_ROT90) motorSetpoint.left = -MOTION_COUNT_ROT90;
-		}
-		else
-		{
-			// Setpoint reached
-			motionCommandCurrent = MOTION_COMMAND_NONE;
-		}
+		_Motion_CommandLeft90();
 	}
 	else if (motionCommandCurrent == MOTION_COMMAND_RIGHT90)  //------------------------------------
 	{
-		if (motorSetpoint.left < MOTION_COUNT_ROT90)
-		{
-			motorSetpoint.left += MOTION_BASE_VELOCITY;
-			if (motorSetpoint.left > MOTION_COUNT_ROT90) motorSetpoint.left = MOTION_COUNT_ROT90;
-			
-			motorSetpoint.right -= MOTION_BASE_VELOCITY;
-			if (motorSetpoint.right < -MOTION_COUNT_ROT90) motorSetpoint.right = -MOTION_COUNT_ROT90;
-		}
-		else
-		{
-			// Setpoint reached
-			motionCommandCurrent = MOTION_COMMAND_NONE;
-		}
+		_Motion_CommandRight90();
 	}
 
 }
 
-void Motion_CommandForward(void)
+void _Motion_CommandForward(void)
 {
 	if (motorSetpoint.right < MOTION_COUNT_CELL)
 		{
@@ -102,4 +78,38 @@ void Motion_CommandForward(void)
 			motionCommandCurrent = MOTION_COMMAND_NONE;
 		}
 
+}
+
+void _Motion_CommandRight90(void)
+{
+	if (motorSetpoint.left < MOTION_COUNT_ROT90)
+	{
+		motorSetpoint.left += MOTION_BASE_VELOCITY;
+		if (motorSetpoint.left > MOTION_COUNT_ROT90) motorSetpoint.left = MOTION_COUNT_ROT90;
+		
+		motorSetpoint.right -= MOTION_BASE_VELOCITY;
+		if (motorSetpoint.right < -MOTION_COUNT_ROT90) motorSetpoint.right = -MOTION_COUNT_ROT90;
+	}
+	else
+	{
+		// Setpoint reached
+		motionCommandCurrent = MOTION_COMMAND_NONE;
+	}
+}
+
+void _Motion_CommandLeft90(void)
+{
+	if (motorSetpoint.right < MOTION_COUNT_ROT90)
+	{
+		motorSetpoint.right += MOTION_BASE_VELOCITY;
+		if (motorSetpoint.right > MOTION_COUNT_ROT90) motorSetpoint.right = MOTION_COUNT_ROT90;
+		
+		motorSetpoint.left -= MOTION_BASE_VELOCITY;
+		if (motorSetpoint.left < -MOTION_COUNT_ROT90) motorSetpoint.left = -MOTION_COUNT_ROT90;
+	}
+	else
+	{
+		// Setpoint reached
+		motionCommandCurrent = MOTION_COMMAND_NONE;
+	}
 }

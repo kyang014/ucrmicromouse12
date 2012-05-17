@@ -27,6 +27,8 @@ extern char motionCommandCurrent;
 void Motion_Init(void);
 void Motion_Update(void);
 
-void Motion_CommandForward(void);
+void _Motion_CommandForward(void);
+void _Motion_CommandLeft90(void);
+void _Motion_CommandRight90(void);
 
 #endif
