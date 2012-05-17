@@ -17,10 +17,10 @@ void Nav_Init(void)
 
 void Nav_Update(void)
 {
-//	if (Motion_Ready())
-//	{
-//		Motion_SetNextCommand(_navCommandList[_navCommandIndex]);
-//		_navCommandIndex++;
-//		if (_navCommandIndex == _navCommandListSize) _navCommandIndex = 0;
-//	}
+	if (Motion_Ready())
+	{
+		Motion_SetNextCommand(_navCommandList[_navCommandIndex]);
+		_navCommandIndex++;
+		if (_navCommandIndex == _navCommandListSize) _navCommandIndex = 0;
+	}
 }
